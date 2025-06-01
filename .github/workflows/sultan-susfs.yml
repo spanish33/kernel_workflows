@@ -42,8 +42,11 @@ jobs:
           
       - name: Download Android toolchain
         run: |
-          git clone --branch android-gs-shusky-6.1-android15-qpr2 --depth 1 https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 clang-prebuilts
-          mv clang-prebuilts/clang-r487747c $HOME/toolchain
+          wget -O toolchain.tar.gz https://github.com/ZyCromerZ/Clang/releases/download/21.0.0git-20250601-release/Clang-21.0.0git-20250601.tar.gz
+          mkdir -p $HOME/toolchain
+          tar -xf toolchain.tar.gz -C $HOME/toolchain
+          #git clone --branch android-gs-shusky-6.1-android15-qpr2 --depth 1 https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 clang-prebuilts
+          #mv clang-prebuilts/clang-r487747c $HOME/toolchain
           #git clone --depth=1 --branch=llvm-r522817 https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 clang-prebuilts
           #mv clang-prebuilts/clang-r522817 $HOME/toolchain
           #git clone --depth=1 --branch=llvm-r547379-release https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 clang-prebuilts
