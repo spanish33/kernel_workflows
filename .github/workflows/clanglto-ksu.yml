@@ -117,6 +117,7 @@ jobs:
           cp ./patches/hook_mode.patch ${{env.REPO}}/KernelSU/
           cp ./patches/su_compat_toggle.patch ${{env.REPO}}/KernelSU/
           cp ./patches/add_ksu-next_manager.patch ${{env.REPO}}/KernelSU/
+          cp ./patches/no_sus_su.patch ${{env.REPO}}/KernelSU/
           
 
           echo "Changing to configuration directory"
@@ -138,6 +139,7 @@ jobs:
           patch -p1 --forward < hook_mode.patch || true
           patch -p0 --forward < su_compat_toggle.patch || true
           patch -p0 --forward < add_ksu-next_manager.patch || true
+          patch -p0 --forward < no_sus_su.patch || true
 
       - name: Apply KSU Hooks from 0ctobot
         run: |
